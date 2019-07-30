@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 
 // Import routes
 const authRoute = require('./routes/auth')
+const postRoute = require('./routes/posts')
 
 // Connect to db
 mongoose.connect(
@@ -20,6 +21,7 @@ app.use(express.json())
 
 // Route Middleware
 app.use('/api/user', authRoute)
+app.use('/api/posts', postRoute)
 
 app.listen(process.env.PORT, () =>
   console.log(`Server now running on port ${process.env.PORT}`)
