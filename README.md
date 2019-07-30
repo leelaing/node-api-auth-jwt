@@ -1,5 +1,7 @@
 # node-api-auth-jwt
 
+## Node JS API Authentication with JWT and Bcrypt JS
+
 ## Clone Repo
 
 ```bash
