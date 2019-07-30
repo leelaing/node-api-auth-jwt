@@ -33,4 +33,24 @@ router.post('/register', async (req, res) => {
   }
 })
 
+router.post('/login', async (req, res) => {
+  // Validate before the user is created
+  const { error } = loginValidation(req.body)
+
+  if (error) return res.status(400).send(error.details[0].message)
+
+  // Check to see if user already exsists
+  const validUser = await userModel.findOne({
+    email: req.body.email
+  })
+  if (!validUser) return res.status(400).send('Email is not a registered email')
+  // Check to see if Password is matching Hashed password
+  const validPassword = await bcrypt.compare(
+    req.body.password,
+    validUser.password
+  )
+  if (!validPassword) return res.status(400).send('Password is incorrect!')
+  res.send(`Logged in as ${validUser.email}`)
+})
+
 module.exports = router

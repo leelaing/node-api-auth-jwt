@@ -21,9 +21,6 @@ const registerValidation = data => {
 // Login Validation
 const loginValidation = data => {
   const validationSchema = {
-    name: Joi.string()
-      .min(6)
-      .required(),
     email: Joi.string()
       .min(6)
       .required()
