@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/leelaing/node-api-auth-jwt#readme",
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "cors": "^2.8.5"
   },
   "dependencies": {
     "@hapi/joi": "^15.1.0",
